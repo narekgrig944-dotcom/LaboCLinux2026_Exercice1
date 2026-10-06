@@ -20,6 +20,7 @@ ELEMENT Elm[] =
   {0,"",""}
 };
 
+int ind = 1;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,17 +70,27 @@ void MainWindow::setEmail(const char* Text)
 void MainWindow::on_pushButtonSuivant_clicked()
 {
   fprintf(stderr,"Clic sur le bouton >>>\n");
-  // TO DO
+  if(Elm[ind + 1].id != 0)
+	{
+		ind++;
+		setNom(Elm[ind].nom);
+		setEmail(Elm[ind].email);
+	}
 }
 
 void MainWindow::on_pushButtonPrecedent_clicked()
 {
   fprintf(stderr,"Clic sur le bouton <<<\n");
-  // TO DO
+  if(Elm[ind - 1].id != 0)
+	{
+		ind--;
+		setNom(Elm[ind].nom);
+		setEmail(Elm[ind].email);
+	}
 }
 
 void MainWindow::on_pushButtonQuitter_clicked()
 {
   fprintf(stderr,"Clic sur le bouton Quitter\n");
-  // TO DO
+  exit(0);
 }
